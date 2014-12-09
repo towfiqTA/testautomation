@@ -1,22 +1,22 @@
 *** Settings ***
-Suite Setup  Go to homepage
-Suite Teardown Close All Browsers
-Library  Selenium2Library
+Suite Setup       Go to homepage
+Suite Teardown    Close All Browsers
+Library           Selenium2Library
 
 *** Variables ***
-${HOMEPAGE}  http://www.google.com
-${BROWSER]   chrome
+${HOMEPAGE}       http://www.google.com
+${BROWSER}        chrome
+
 *** Test Cases ***
-Google Devops find eficode 
-    Google and Check results	devops		www.eficode.fi
-    
+Google Devops find eficode
+    Google and Check results    devops    www.eficode.fi
+
 *** Keywords ***
 Google and Check results
-    [Arguments]    ${searchkey}     ${result}
-    Imput Text	id=gbqfq	${searchkey}
-    Click Button	id=gbqfb 
-    Wait Until Pag Contains	${result}
+    [Arguments]    ${searchkey}    ${result}
+    Input Text    id=gbqfq    ${searchkey}
+    Click Button    id=gbqfb
+    Wait Until Page Contains    ${result}
+
 Go to homepage
-   Open Browser 	${HOMEPAGE}	 ${BROWSER]
-
-
+    Open Browser    ${HOMEPAGE}    ${BROWSER}
