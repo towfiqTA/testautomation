@@ -1,22 +1,37 @@
 *** Settings ***
-Suite Setup       Go to homepage
-Suite Teardown    Close All Browsers
-Library           Selenium2Library
+Library 	Selenium2Library
+Suite Setup  Open Browser   ${HOMEPAGE}   ${BROWSER}
+Test Setup   Go To   ${HOMEPAGE}
+Suite Teardown  Close All Browsers
+Documentation   Demonstrate Selenium2Library by googling.
 
 *** Variables ***
-${HOMEPAGE}       http://www.google.com
-${BROWSER}        chrome
+${HOMEPAGE}  http://www.google.com
+${BROWSER}  Firefox
 
 *** Test Cases ***
-Google Devops find eficode
-    Google and Check results    devops    www.eficode.fi
+Google searches and verify results
+    [Tags]   templated-tests
+    [Template]  Google and check results
+    www.nilaos.com   www.nilaos.com
+    google   google.com
+    robotframework   robotframework.org
+
+Google techblognilaos and find nilaos
+    [Tags]   nilaos   nila   smoke
+    Google and check results   www.nilaos.com   www.nilaos.com
+
+Google google and find its website
+    [Tags]   google   googler   
+    Google and check results   google   google.com
+
+Google robot and find its website
+    [Tags]   robot   
+    Google and check results   robotframework   robotframework.org
 
 *** Keywords ***
-Google and Check results
-    [Arguments]    ${searchkey}    ${result}
-    Input Text    id=gbqfq    ${searchkey}
-    Click Button    id=gbqfb
-    Wait Until Page Contains    ${result}
-
-Go to homepage
-    Open Browser    ${HOMEPAGE}    ${BROWSER}
+Google and check results
+    [Arguments]   ${searchkey}   ${result}
+	Input Text    id=gbqfq       ${searchkey}
+	Click Button   id=gbqfb
+	Wait Until Page Contains   ${result}
