@@ -1,37 +1,37 @@
 *** Settings ***
-Library 	Selenium2Library
-Suite Setup  Open Browser   ${HOMEPAGE}   ${BROWSER}
-Test Setup   Go To   ${HOMEPAGE}
-Suite Teardown  Close All Browsers
-Documentation   Demonstrate Selenium2Library by googling.
+Documentation     Demonstrate Selenium2Library by googling.
+Suite Setup       Open Browser    ${HOMEPAGE}    ${BROWSER}
+Suite Teardown    Close All Browsers
+Test Setup        Go To    ${HOMEPAGE}
+Library           Selenium2Library
 
 *** Variables ***
-${HOMEPAGE}  http://www.google.com
-${BROWSER}  Firefox
+${HOMEPAGE}       http://www.google.com
+${BROWSER}        Chrome
 
 *** Test Cases ***
 Google searches and verify results
-    [Tags]   templated-tests
-    [Template]  Google and check results
-    www.nilaos.com   www.nilaos.com
-    google   google.com
-    robotframework   robotframework.org
+    [Tags]    templated-tests
+    [Template]    Google and check results
+    www.nilaos.com    www.nilaos.com
+    google    google.com
+    robotframework    robotframework.org
 
 Google techblognilaos and find nilaos
-    [Tags]   nilaos   nila   smoke
-    Google and check results   www.nilaos.com   www.nilaos.com
+    [Tags]    nilaos    nila    smoke
+    Google and check results    www.nilaos.com    www.nilaos.com
 
 Google google and find its website
-    [Tags]   google   googler   
-    Google and check results   google   google.com
+    [Tags]    google    googler
+    Google and check results    google    google.com
 
 Google robot and find its website
-    [Tags]   robot   
-    Google and check results   robotframework   robotframework.org
+    [Tags]    robot
+    Google and check results    robotframework    robotframework.org
 
 *** Keywords ***
 Google and check results
-    [Arguments]   ${searchkey}   ${result}
-	Input Text    id=gbqfq       ${searchkey}
-	Click Button   id=gbqfb
-	Wait Until Page Contains   ${result}
+    [Arguments]    ${searchkey}    ${result}
+    Input Text    id=gbqfq    ${searchkey}
+    Click Button    id=gbqfb
+    Wait Until Page Contains    ${result}
