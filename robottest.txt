@@ -7,7 +7,7 @@ Library           Selenium2Library
 
 *** Variables ***
 ${HOMEPAGE}       http://www.google.com
-${BROWSER}        gc
+${BROWSER}        safari
 
 *** Test Cases ***
 Google searches and verify results
@@ -32,7 +32,6 @@ Google robot and find its website
 *** Keywords ***
 Open the browser
     Open Browser    ${HOMEPAGE}    ${BROWSER}
-    Set WIndow Size    ${800}    ${600}
 
 Google and check results
     [Arguments]    ${searchkey}    ${result}
