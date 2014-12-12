@@ -32,7 +32,7 @@ Google robot and find its website
 *** Keywords ***
 Open the browser
     Open Browser    ${HOMEPAGE}    ${BROWSER}
-    Maximize Browser Window
+    Set WIndow Size    ${800}    ${600}
 
 Google and check results
     [Arguments]    ${searchkey}    ${result}
