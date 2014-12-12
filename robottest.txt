@@ -1,13 +1,13 @@
 *** Settings ***
 Documentation     Demonstrate Selenium2Library by googling.
-Suite Setup       Open Browser    ${HOMEPAGE}    ${BROWSER}
+Suite Setup       Open the browser
 Suite Teardown    Close All Browsers
 Test Setup        Go To    ${HOMEPAGE}
 Library           Selenium2Library
 
 *** Variables ***
 ${HOMEPAGE}       http://www.google.com
-${BROWSER}        Chrome
+${BROWSER}        gc
 
 *** Test Cases ***
 Google searches and verify results
@@ -30,6 +30,10 @@ Google robot and find its website
     Google and check results    robotframework    robotframework.org
 
 *** Keywords ***
+Open the browser
+    Open Browser    ${HOMEPAGE}    ${BROWSER}
+    Maximize Browser Window
+
 Google and check results
     [Arguments]    ${searchkey}    ${result}
     Input Text    id=gbqfq    ${searchkey}
