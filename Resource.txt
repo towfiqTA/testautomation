@@ -1,0 +1,61 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Variables ***
+${URL}            https://www.facebook.com/
+${BROWSER}        gc
+${FIRST NAME}     Towfiq
+${FIRST NAME LOCATOR}    id=u_0_1
+${LAST NAME}      Rahman
+${LAST NAME LOCATOR}    id=u_0_3
+${EMAIL}          testemail@gmail.com
+${EMAIL LOCATOR}    id=u_0_5
+${RE EMAIL LOCATOR}    id=u_0_8
+${PASSWORD}       12345
+${PASSWORD LOCATOR}    id=u_0_a
+${REGION VALUES}    Region(742,270,436,221)    # The rectangle area contains all the text fileds
+${TITLE}          Welcome to Facebook - Log In, Sign Up or Learn More
+${SIGNUP BUTTON LOCATOR}    id=u_0_i
+${SEX MALE LOCATOR}    id=u_0_e
+${ERROR MESSAGE LOCATOR}    xpath=//*[contains(text(),'Select your birthday. You can change who can see this later')]
+
+*** Keywords ***
+Open Facebook login page
+    Open Browser    ${URL}    ${BROWSER}
+    Maximize Browser Window
+    Verify Facebook login page opened
+    Sleep    1
+
+Enter First Name
+    [Arguments]    ${FIRST NAME}
+    Input Text    ${FIRST NAME LOCATOR}    ${FIRST NAME}
+
+Enter Last Name
+    [Arguments]    ${LAST NAME}
+    Input Text    ${LAST NAME LOCATOR}    ${LAST NAME}
+
+Enter Email
+    [Arguments]    ${EMAIL}
+    Input Text    ${EMAIL LOCATOR}    ${EMAIL}
+
+ReEnter Email
+    [Arguments]    ${EMAIL}
+    Input Text    ${RE EMAIL LOCATOR}    ${EMAIL}
+
+Enter Password
+    [Arguments]    ${PASSWORD}
+    Input Text    ${PASSWORD LOCATOR}    ${PASSWORD}
+
+Verify Facebook login page opened
+    Title Should Be    ${TITLE}
+
+Select Sex
+    [Arguments]    ${SEX MALE LOCATOR}
+    Click Button    ${SEX MALE LOCATOR}
+
+Submit Information
+    Click Button    ${SIGNUP BUTTON LOCATOR}
+
+Verify SignUp Failed
+    sleep    2
+    Element Should Be Visible    ${ERROR MESSAGE LOCATOR}

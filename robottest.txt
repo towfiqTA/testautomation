@@ -1,42 +1,17 @@
 *** Settings ***
-Documentation     Demonstrate Selenium2Library by googling.
-Suite Setup       Open the browser
-Suite Teardown    Close All Browsers
-Test Setup        Go To    ${HOMEPAGE}
-Library           Selenium2Library
-Library           AutoItLibrary
-
-*** Variables ***
-${HOMEPAGE}       http://www.google.com
-${BROWSER}        safari
+Suite Setup       Open Facebook login page
+Suite Teardown    Selenium2Library.Close Browser
+Resource          Resource.txt
 
 *** Test Cases ***
-Google searches and verify results
-    [Tags]    templated-tests
-    [Template]    Google and check results
-    www.nilaos.com    www.nilaos.com
-    google    google.com
-    robotframework    robotframework.org
-
-Google techblognilaos and find nilaos
-    [Tags]    nilaos    nila    smoke
-    Google and check results    www.nilaos.com    www.nilaos.com
-
-Google google and find its website
-    [Tags]    google    googler
-    Google and check results    google    google.com
-
-Google robot and find its website
-    [Tags]    robot
-    Google and check results    robotframework    robotframework.org
-
-*** Keywords ***
-Open the browser
-    Open Browser    ${HOMEPAGE}    ${BROWSER}
-    send    !{TAB}
-
-Google and check results
-    [Arguments]    ${searchkey}    ${result}
-    Input Text    id=gbqfq    ${searchkey}
-    Click Button    id=gbqfb
-    Wait Until Page Contains    ${result}
+Sign Up not possible without filling birthday
+    [Setup]
+    Enter First Name    ${FIRST NAME}
+    Enter Last Name    ${LAST NAME}
+    Enter Email    ${EMAIL}
+    ReEnter Email    ${EMAIL}
+    Enter Password    ${PASSWORD}
+    Select Sex    ${SEX MALE LOCATOR}
+    Submit Information
+    Verify SignUp Failed
+    [Teardown]
