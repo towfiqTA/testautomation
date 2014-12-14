@@ -1,6 +1,6 @@
 *** Settings ***
 Suite Setup       Open Facebook login page
-Suite Teardown    Selenium2Library.Close Browser
+Suite Teardown    Close All Browsers
 Resource          Resource.txt
 
 *** Test Cases ***
