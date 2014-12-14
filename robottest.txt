@@ -4,6 +4,7 @@ Suite Setup       Open the browser
 Suite Teardown    Close All Browsers
 Test Setup        Go To    ${HOMEPAGE}
 Library           Selenium2Library
+Library           AutoItLibrary
 
 *** Variables ***
 ${HOMEPAGE}       http://www.google.com
@@ -32,6 +33,7 @@ Google robot and find its website
 *** Keywords ***
 Open the browser
     Open Browser    ${HOMEPAGE}    ${BROWSER}
+    send    !{TAB}
     Set Window Size    ${400}    ${600}
 
 Google and check results
