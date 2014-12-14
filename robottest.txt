@@ -34,7 +34,6 @@ Google robot and find its website
 Open the browser
     Open Browser    ${HOMEPAGE}    ${BROWSER}
     send    !{TAB}
-    Set Window Size    ${400}    ${600}
 
 Google and check results
     [Arguments]    ${searchkey}    ${result}
