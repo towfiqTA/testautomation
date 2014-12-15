@@ -19,12 +19,6 @@ ${SEX MALE LOCATOR}    id=u_0_e
 ${ERROR MESSAGE LOCATOR}    xpath=//*[contains(text(),'Select your birthday. You can change who can see this later')]
 
 *** Keywords ***
-Open Facebook login page
-    Open Browser    ${URL}    ${BROWSER}
-    Send    !{TAB}
-    Verify Facebook login page opened
-    Sleep    1
-
 Enter First Name
     [Arguments]    ${FIRST NAME}
     Input Text    ${FIRST NAME LOCATOR}    ${FIRST NAME}

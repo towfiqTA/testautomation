@@ -19,3 +19,9 @@ Sign Up not possible without filling birthday
     Submit Information
     Verify SignUp Failed
     [Teardown]
+*** Keywords ***
+Open Facebook login page
+    Open Browser    ${URL}    ${BROWSER}
+    Send    !{TAB}
+    Verify Facebook login page opened
+    Sleep    1
