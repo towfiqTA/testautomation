@@ -54,7 +54,7 @@ Select Sex
     Click Button    ${SEX MALE LOCATOR}
 
 Submit Information
-    Click Button    ${SIGNUP BUTTON LOCATOR}
+    Click Element    ${SIGNUP BUTTON LOCATOR}
 
 Verify SignUp Failed
     Wait Until Element Is Visible    ${ERROR MESSAGE LOCATOR}
