@@ -1,6 +1,6 @@
 *** Settings ***
 Suite Setup       Open Facebook login page
-Suite Teardown    Close All Browsers
+Suite Teardown    Close Browser
 Resource          Resource.txt
 
 *** Test Cases ***

@@ -25,7 +25,7 @@ Open Facebook login page
     Open Browser    ${URL}    ${BROWSER}
     Send    !{TAB}
     Verify Facebook login page opened
-    Sleep    1
+    
 Enter First Name
     [Arguments]    ${FIRST NAME}
     Input Text    ${FIRST NAME LOCATOR}    ${FIRST NAME}
@@ -57,5 +57,4 @@ Submit Information
     Click Button    ${SIGNUP BUTTON LOCATOR}
 
 Verify SignUp Failed
-    sleep    2
     Element Should Be Visible    ${ERROR MESSAGE LOCATOR}
