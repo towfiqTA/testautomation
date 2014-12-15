@@ -1,6 +1,5 @@
 *** Settings ***
 Library           Selenium2Library
-Library           AutoItLibrary
 
 *** Variables ***
 ${URL}            https://www.facebook.com/
@@ -23,7 +22,6 @@ ${ERROR MESSAGE LOCATOR}    xpath=//*[contains(text(),'Select your birthday. You
 *** Keywords ***
 Open Facebook login page
     Open Browser    ${URL}    ${BROWSER}
-    Send    !{TAB}
     Verify Facebook login page opened
     
 Enter First Name
