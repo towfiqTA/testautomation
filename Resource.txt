@@ -57,4 +57,4 @@ Submit Information
     Click Button    ${SIGNUP BUTTON LOCATOR}
 
 Verify SignUp Failed
-    Element Should Be Visible    ${ERROR MESSAGE LOCATOR}
+    Wait Until Element Is Visible    ${ERROR MESSAGE LOCATOR}
