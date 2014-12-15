@@ -3,8 +3,6 @@ Library           Selenium2Library
 Library           AutoItLibrary
 
 *** Variables ***
-${URL}            https://www.facebook.com/
-${BROWSER}        gc
 ${FIRST NAME}     Towfiq
 ${FIRST NAME LOCATOR}    id=u_0_1
 ${LAST NAME}      Rahman

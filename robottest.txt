@@ -3,6 +3,10 @@ Suite Setup       Open Facebook login page
 Suite Teardown    Close All Browsers
 Resource          Resource.txt
 
+*** Variables ***
+${URL}            https://www.facebook.com/
+${BROWSER}        gc
+
 *** Test Cases ***
 Sign Up not possible without filling birthday
     [Setup]
