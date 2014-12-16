@@ -21,7 +21,6 @@ ${ERROR MESSAGE LOCATOR}    xpath=//*[contains(text(),'Select your birthday. You
 *** Keywords ***
 Open Facebook login page
     Open Browser    ${URL}    ${BROWSER}
-    Maximize Browser Window
     Verify Facebook login page opened
     
 Enter First Name
