@@ -13,7 +13,6 @@ ${EMAIL LOCATOR}    id=u_0_5
 ${RE EMAIL LOCATOR}    id=u_0_8
 ${PASSWORD}       12345
 ${PASSWORD LOCATOR}    id=u_0_a
-${REGION VALUES}    Region(742,270,436,221)    # The rectangle area contains all the text fileds
 ${TITLE}          Welcome to Facebook - Log In, Sign Up or Learn More
 ${SIGNUP BUTTON LOCATOR}    id=u_0_i
 ${SEX MALE LOCATOR}    id=u_0_e
